@@ -131,7 +131,7 @@ namespace GradeBookTests
                     using (var consolestream = new StringWriter())
                     {
                         Console.SetOut(consolestream);
-                        StartingUserInterface.CreateCommand("create test standard");
+                        StartingUserInterface.CreateCommand("create standard test");
                         output = consolestream.ToString().ToLower();
 
                         Assert.True(output.Contains("standard"), "`GradeBook.UserInterfaces.StartingUserInterface` didn't create a `StandardGradeBook` when 'standard' was used with the `CreateCommand`.");
@@ -152,13 +152,13 @@ namespace GradeBookTests
 
             try
             {
-                using (var consoleInputStream = new StringReader("close"))
+                using (var consoleInputStream = new StringReader("ranked"))
                 {
                     Console.SetIn(consoleInputStream);
                     using (var consolestream = new StringWriter())
                     {
                         Console.SetOut(consolestream);
-                        StartingUserInterface.CreateCommand("create test ranked");
+                        StartingUserInterface.CreateCommand("create ranked test");
                         output = consolestream.ToString().ToLower();
 
                         Assert.True(output.Contains("ranked"), "`GradeBook.UserInterfaces.StartingUserInterface` didn't create a `RankedGradeBook` when 'ranked' was used with the `CreateCommand`.");
